@@ -1,0 +1,18 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: expense
+  region: us-east-1
+
+# On demand Instences --> Creting server on the spot
+managedNodeGroups:
+  - name: expense
+    instanceTypes: ["m5.large", "c3.large","c4.large","c5.large"]
+    desiredCapacity: 3
+    spot: true 
+
+
+# On Demand Service --> Creating server on the spot
+# reserved --> Which is cost less compared to because we are reserving the resource for long time
+# SPOT --> They will run service with HIGH discounts but the any customer required the same, they are going to take back the service with short notice
